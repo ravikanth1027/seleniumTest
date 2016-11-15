@@ -1,0 +1,18 @@
+ OS : Ubuntu 
+Selenium Version : 3.0.1
+FireFox : > 31
+
+Hear I was trying to run front end automation using Marionette .  Most of the tutorials have given the driver setup as 
+
+	System.setProperty("webdriver.gecko.driver",driverPath+"geckodriver");
+		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		capabilities.setCapability("marionette",true);
+		driver = new FirefoxDriver(capabilities);	
+But from the observations It was found that when we five gecko.driver , browser is opening but was not able to start any session . Hence failing the cases throwing the error for same
+
+Fix :
+   
+	System.setProperty("webdriver.firefox.marionette",driverPath+"geckodriver");
+		DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+		capabilities.setCapability("marionette",true);
+		driver = new FirefoxDriver(capabilities);
